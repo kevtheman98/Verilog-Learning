@@ -1,17 +1,15 @@
-module mux (input [3:0] a,
-            input [3:0] b,
-            input [3:0] c,
-            input [3:0] d,
-            input [2:0] s,
-            output [3:0] y);
+module mux (input logic a, b, c, d,
+            input logic [1:0] s,
+            output logic y);
     always_comb 
         begin
-            
-        
+            case (s)
+                2'b00 : y = a;
+                2'b01 : y = b;
+                2'b10 : y = c;
+                2'b11 : y = d;
+                default : y = 1'bx;
+            endcase
         end
-    
-    
-
-
 
 endmodule
